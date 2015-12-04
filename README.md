@@ -13,8 +13,6 @@ Links:
         - https://moqups.com/#!/edit/madhat5/jR69snL3
     - Trello link
         - https://trello.com/b/79qQIpKD/wdi-project-4a-jmny
-    - Yeoman generator
-        - https://github.com/DaftMonk/generator-angular-fullstack
     - Heroku
         - 
 
@@ -95,8 +93,7 @@ Models:
         - (each goal has score)
 
 User story:
-
-- MOAR MODALS!!!
+(MOAR MODALS!!!)
 
 - landing page:
     - log in button
@@ -125,7 +122,7 @@ User story:
 
 - make each div HWR specific?
 
-- share to social media?
+- share to social media? (Passport?)
 
 - integrate into calendar (finds empty time slots and injects objective)
 
@@ -133,9 +130,6 @@ User story:
 ---
 ---
 App Build Steps:
-
-- stormpath
-
 
 - touch server.js --o--
 
@@ -198,15 +192,15 @@ App Build Steps:
     - setup basic index.html/app.js
     - launch server (nodemon)
 
-- CDN
-    - js-cookie URL --x--
+- CDN --o--
+    - js-cookie URL 
     - Angular
         
 - model build --o--
     - user.js
         - var mongoose = require('mongoose');
         - var userSchema = new mongoose.Schema({ ... });
-            - link taskSchema
+            - link taskSchema (embed or ref)
         - var User = mongoose.model('User', userSchema);
         - module.exports = User;
         - embed tasks (ref Complaints)
@@ -215,7 +209,7 @@ App Build Steps:
         - var taskSchema = new mongoose.Schema({ ... });
         - var Task = mongoose.model('Task', taskSchema);
         - module.exports = Task;
-        - ?embed users?
+        	- ?embed/ref users?
 
 - Story build --o--
     - server: 
@@ -225,16 +219,11 @@ App Build Steps:
         - TEST
         - index.html
         - app.js
-            - user 
-                - signup
-                - update
-                - delete
+            - user
             - task
-                - all
-                - new
-                - delete (auto delete when done)
 
 - CSS --o--
+	- bootstrap
 
 - node server.js
 
@@ -246,9 +235,6 @@ Reference
 - Git merging
     - https://github.com/ga-students/wdi_lettuce_students/blob/master/w08/d02/INSTRUCTOR/git_solo.md
 
-- Scaffolding (Yeoman)
-    - http://blog.teamtreehouse.com/improving-development-workflow-yeoman
-
 - User auth (Stormpath)
     - https://stormpath.com/blog/build-nodejs-express-stormpath-app/
 
@@ -258,7 +244,7 @@ Reference
 ---
 Comments/Notes:
 
-- Link user auth with user model 
+- 
 
 
 ---
