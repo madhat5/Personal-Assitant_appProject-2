@@ -131,12 +131,12 @@ User story:
 ---
 App Build Steps:
 
-- touch server.js --o--
+- touch server.js --x--
 
-- npm init --o--
+- npm init --x--
 	-'enter' through all the prompts
 
-- express setup (npm install --save express) --o--
+- express setup (npm install --save express) --x--
 	- server.js
 		- var express = require('express');
 		- var app = express();
@@ -145,30 +145,26 @@ App Build Steps:
 	- server.js
 		- var port = process.env.PORT || 3000;
 
-- morgan setup (npm install --save morgan) --o--
+- packages setup --o--
+	- npm install --save morgan mongoose cookie-parser express-stormpath
 	- server.js
-		- var morgan = require('morgan');
-		- app.use(morgan('dev'));
-
-- mongoose setup (npm install --save mongoose) --o--
-	- server.js
-		- var mongoose = require('mongoose');
-		- mongoose.connect('mongodb://localhost/db_name');
-
-- cookies setup (npm install --save cookie-parser) --o--
-	- server.js
-		- var cookieParser = require('cookie-parser');
-		- app.use(cookieParser());
-
-- stormpath setup (npm install --save express-stormpath) --o--
-	- server.js
-		- var stormPath = require('express-stormpath');
-		- app.use(stormpath.init(app, {
-  			website: true,
-			expand: {
-		    	customData: true
-			}
-		}));
+		- morgan
+			- var morgan = require('morgan');
+			- app.use(morgan('dev'));
+		- mongoose
+			- var mongoose = require('mongoose');
+			- mongoose.connect('mongodb://localhost/db_name');
+		- cookie-parser
+			- var cookieParser = require('cookie-parser');
+			- app.use(cookieParser());
+		- storm-path
+			- var stormPath = require('express-stormpath');
+			- app.use(stormpath.init(app, {
+	  			website: true,
+				expand: {
+			    	customData: true
+				}
+			}));
 
 - mkdir public --o--
 	- server.js
