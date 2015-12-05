@@ -13,8 +13,6 @@ Links:
         - https://moqups.com/#!/edit/madhat5/jR69snL3
     - Trello link
         - https://trello.com/b/79qQIpKD/wdi-project-4a-jmny
-    - Yeoman generator
-        - https://github.com/DaftMonk/generator-angular-fullstack
     - Heroku
         - 
 
@@ -95,8 +93,7 @@ Models:
         - (each goal has score)
 
 User story:
-
-- MOAR MODALS!!!
+(MOAR MODALS!!!)
 
 - landing page:
     - log in button
@@ -125,7 +122,7 @@ User story:
 
 - make each div HWR specific?
 
-- share to social media?
+- share to social media? (Passport?)
 
 - integrate into calendar (finds empty time slots and injects objective)
 
@@ -134,15 +131,12 @@ User story:
 ---
 App Build Steps:
 
-- stormpath
+- touch server.js --x--
 
-
-- touch server.js --o--
-
-- npm init --o--
+- npm init --x--
 	-'enter' through all the prompts
 
-- express setup (npm install --save express) --o--
+- express setup (npm install --save express) --x--
 	- server.js
 		- var express = require('express');
 		- var app = express();
@@ -151,41 +145,66 @@ App Build Steps:
 	- server.js
 		- var port = process.env.PORT || 3000;
 
-- morgan setup (npm install --save morgan) --o--
+- packages setup --x--
+	- npm install --save morgan mongoose cookie-parser express-stormpath
 	- server.js
-		- var morgan = require('morgan');
-		- app.use(morgan('dev'));
+		- morgan
+			- var morgan = require('morgan');
+			- app.use(morgan('dev'));
+		- mongoose
+			- var mongoose = require('mongoose');
+			- mongoose.connect('mongodb://localhost/db_name');
+		- cookie-parser
+			- var cookieParser = require('cookie-parser');
+			- app.use(cookieParser());
+		- storm-path
+			- var stormPath = require('express-stormpath');
+			- app.use(stormpath.init(app, {
+	  			website: true,
+				expand: {
+			    	customData: true
+				}
+			}));
 
-- mongoose setup (npm install --save mongoose) --o--
-	- server.js
-		- var mongoose = require('mongoose');
-		- mongoose.connect('mongodb://localhost/db_name');
-
-- cookies setup (npm install --save cookie-parser) --o--
-	- server.js
-		- var cookieParser = require('cookie-parser');
-		- app.use(cookieParser());
-
-- stormpath setup (npm install --save express-stormpath) --o--
-	- server.js
-		- var stormPath = require('express-stormpath');
-		- app.use(stormpath.init(app, {
-  			website: true,
-			expand: {
-		    	customData: true
-			}
-		}));
-
-- mkdir public --o--
+- mkdir public --x--
 	- server.js
 		- app.use(express.static('public'));
 	- touch public/index.html
 	- touch public/app.js
 	- touch public/style.css
 
-- middleware setup --o--
+- middleware setup --x--
 
-- models --o--
+- listener setup --x--
+	- server.js
+		- app.on('stormpath.ready',function(){
+  			console.log('Stormpath Ready');
+  			app.listen(3000);
+		});
+
+- mkdir views --x--
+	- server.js
+		- app.use(express.static('views'));
+	- touch views/home.html
+	- touch views/profile.html
+
+- stormpath link --x--
+	- terminal
+		- export STORMPATH_CLIENT_APIKEY_ID=xxxx
+		- export STORMPATH_CLIENT_APIKEY_SECRET=xxxx
+		- export STORMPATH_APPLICATION_HREF=xxxx
+
+- test connection --o--
+    - setup basic route
+    - setup basic index.html/app.js
+    - launch server (nodemon)    
+
+- views build --o--
+	- ?views/index.html?
+	- views/home.html
+	- views/profile.html
+
+- models build --o--
     - mkdir models
         - touch models/user.js
         - touch models/goal.js
@@ -193,20 +212,15 @@ App Build Steps:
         - var User = require('./models/user');
         - var Goal = require('./models/goal');
 
-- test connection --o--
-    - setup basic route
-    - setup basic index.html/app.js
-    - launch server (nodemon)
-
-- CDN
-    - js-cookie URL --x--
+- CDN --o--
+    - js-cookie URL 
     - Angular
         
 - model build --o--
     - user.js
         - var mongoose = require('mongoose');
         - var userSchema = new mongoose.Schema({ ... });
-            - link taskSchema
+            - link taskSchema (embed or ref)
         - var User = mongoose.model('User', userSchema);
         - module.exports = User;
         - embed tasks (ref Complaints)
@@ -215,7 +229,7 @@ App Build Steps:
         - var taskSchema = new mongoose.Schema({ ... });
         - var Task = mongoose.model('Task', taskSchema);
         - module.exports = Task;
-        - ?embed users?
+        	- ?embed/ref users?
 
 - Story build --o--
     - server: 
@@ -225,16 +239,11 @@ App Build Steps:
         - TEST
         - index.html
         - app.js
-            - user 
-                - signup
-                - update
-                - delete
+            - user
             - task
-                - all
-                - new
-                - delete (auto delete when done)
 
 - CSS --o--
+	- bootstrap
 
 - node server.js
 
@@ -246,9 +255,6 @@ Reference
 - Git merging
     - https://github.com/ga-students/wdi_lettuce_students/blob/master/w08/d02/INSTRUCTOR/git_solo.md
 
-- Scaffolding (Yeoman)
-    - http://blog.teamtreehouse.com/improving-development-workflow-yeoman
-
 - User auth (Stormpath)
     - https://stormpath.com/blog/build-nodejs-express-stormpath-app/
 
@@ -258,7 +264,7 @@ Reference
 ---
 Comments/Notes:
 
-- Link user auth with user model 
+- 
 
 
 ---
