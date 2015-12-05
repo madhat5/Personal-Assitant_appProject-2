@@ -145,7 +145,7 @@ App Build Steps:
 	- server.js
 		- var port = process.env.PORT || 3000;
 
-- packages setup --o--
+- packages setup --x--
 	- npm install --save morgan mongoose cookie-parser express-stormpath
 	- server.js
 		- morgan
@@ -166,14 +166,32 @@ App Build Steps:
 				}
 			}));
 
-- mkdir public --o--
+- mkdir public --x--
 	- server.js
 		- app.use(express.static('public'));
 	- touch public/index.html
 	- touch public/app.js
 	- touch public/style.css
 
-- middleware setup --o--
+- middleware setup --x--
+
+- listener setup --x--
+	- server.js
+		- app.on('stormpath.ready',function(){
+  			console.log('Stormpath Ready');
+  			app.listen(3000);
+		});
+
+- mkdir views --x--
+	- server.js
+		- app.use(express.static('views'));
+	- touch views/home.html
+	- touch views/profile.html
+
+- test connection --o--
+    - setup basic route
+    - setup basic index.html/app.js
+    - launch server (nodemon)
 
 - models --o--
     - mkdir models
@@ -182,11 +200,6 @@ App Build Steps:
     - server.js
         - var User = require('./models/user');
         - var Goal = require('./models/goal');
-
-- test connection --o--
-    - setup basic route
-    - setup basic index.html/app.js
-    - launch server (nodemon)
 
 - CDN --o--
     - js-cookie URL 
