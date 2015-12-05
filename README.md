@@ -188,12 +188,23 @@ App Build Steps:
 	- touch views/home.html
 	- touch views/profile.html
 
+- stormpath link --x--
+	- terminal
+		- export STORMPATH_CLIENT_APIKEY_ID=xxxx
+		- export STORMPATH_CLIENT_APIKEY_SECRET=xxxx
+		- export STORMPATH_APPLICATION_HREF=xxxx
+
 - test connection --o--
     - setup basic route
     - setup basic index.html/app.js
-    - launch server (nodemon)
+    - launch server (nodemon)    
 
-- models --o--
+- views build --o--
+	- ?views/index.html?
+	- views/home.html
+	- views/profile.html
+
+- models build --o--
     - mkdir models
         - touch models/user.js
         - touch models/goal.js

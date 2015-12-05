@@ -11,38 +11,34 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 // lISTENER
-app.on('stormpath.ready',function(){
-  console.log('Stormpath Ready');
-  app.listen(3000);
-});
+// app.on('stormpath.ready',function(){
+  // console.log('Stormpath Ready');
+  app.listen(port);
+  console.log('Silence please...');
+  setTimeout(function(){console.log('Curtains up...')}, 3000);
+  console.log('Server started on ' + port);
+// });
 
 // MIDDLEWARE
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(stormpath.init(app, {
-  website: true,
-  expand: {
-    customData: true
-  }
-}));
 app.use(express.static('public'));
+app.use(express.static('views'));
+// app.use(stormpath.init(app, {
+//   website: true,
+//   expand: {
+//     customData: true
+//   }
+// }));
 
 // MONGO
 mongoose.connect('mongodb:/localhost/goal_maker')
 
 // ROUTES///////////////////////////////////////////////////////////////////
 
-app.get('/', function(req, res) {
-  res.render('home', {
-    title: 'Welcome'
-  });
+app.get('/test', function(req, res) {
+  res.send('Sim Sim Salabim')
 });
 
-
-
-// TERMINAL MSGS//////////////////////////////////////////////////////////
-console.log('Silence please...');
-setTimeout(function(){console.log('Curtains up...')}, 3000);
-console.log('Server started on ' + port);
 
 // TEMP STUFF && GARBAGE//////////////////////////////////////////////////
